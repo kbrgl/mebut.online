@@ -1,6 +1,7 @@
 const Airtable = require("airtable")
 const MarkdownIt = require("markdown-it")
 const Image = require("@11ty/eleventy-img")
+const { AssetCache } = require("@11ty/eleventy-fetch")
 
 const md = new MarkdownIt()
 
@@ -10,7 +11,13 @@ const base = new Airtable({
 const table = base("Websites")
 
 module.exports = async function () {
-  const sites = await table
+  const asset = new AssetCache("airtable_sites")
+
+  if (asset.isCacheValid("1w")) {
+    return asset.getCachedValue()
+  }
+
+  let sites = await table
     .select({
       sort: [{ field: "Created", direction: "desc" }],
     })
@@ -23,7 +30,9 @@ module.exports = async function () {
     },
   }
 
-  return Promise.all(
+  console.log(`Fetched ${sites.length} sites from Airtable`)
+
+  sites = await Promise.all(
     sites.map(async ({ fields }) => {
       const preview = fields.Attachments[0].url
       const thumbnail = fields.Attachments[0].thumbnails.large.url
@@ -43,4 +52,8 @@ module.exports = async function () {
       }
     })
   )
+
+  await asset.save(sites, "json")
+
+  return sites
 }

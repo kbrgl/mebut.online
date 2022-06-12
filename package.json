@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "concurrently --raw \"tailwindcss -w -i ./styles/app.css -o ./_site/app.css\" \"eleventy --serve --quiet\"",
+    "serve": "concurrently --raw \"tailwindcss -w -i ./styles/app.css -o ./_site/app.css\" \"eleventy --serve --quiet --incremental\"",
     "build": "tailwindcss -m -i ./styles/app.css -o ./_site/app.css && eleventy"
   },
   "keywords": [],
