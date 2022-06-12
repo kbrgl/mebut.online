@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html, body {
+        @apply bg-gray-200;
+    }
+}
+
 @font-face {
     font-family: Redaction;
     src: url(/redaction-regular.woff2);
