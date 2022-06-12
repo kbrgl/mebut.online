@@ -5,12 +5,14 @@ block content
     header.mx-auto.py-10(class="px-5 md:px-10")
         h1.font-title.text-5xl Me, But <em>Online</em>.
         p.text-lg.text-gray-600.mt-5.max-w-prose
-            | A curated collection of <a class="underline" href="https://kabirgoel.com">Kabir’s</a> favorite personal websites.
-            | He likes minimalist, innovative websites that have great typography and use HTTPS.
+            | A collection of minimalist, innovative personal websites with great typography.
+            br
+            | Curated by #[a.underline(href="https://kabirgoel.com") Kabir].
+    .subscribe
     .pb-20(class="px-5 md:px-10")
-        .grid.gap-4.border-collapse.w-full(class="grid-cols-1 md:grid-cols-3")
+        .grid.gap-8.border-collapse.w-full(class="grid-cols-1 md:grid-cols-3")
             each site in sites
-                a(href=site.link, class="shadow hover:shadow-xl transition-shadow").block.bg-white
-                    img(src=site.thumbnail.jpeg[0].url).w-full.border-b-2
-                    .p-5
-                        p.font-medium.text-2xl(class="group-hover:text-gray-500")= site.name
+                a(href=site.link, class="").block.group
+                    img(src=site.thumbnail.jpeg[0].url, class="group-hover:shadow-xl transition-shadow").w-full
+                    .pt-2
+                        p.font-medium.text-2xl= site.name
