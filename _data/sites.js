@@ -10,7 +10,11 @@ const base = new Airtable({
 const table = base("Websites")
 
 module.exports = async function () {
-  const sites = await table.select().all()
+  const sites = await table
+    .select({
+      sort: [{ field: "Created", direction: "desc" }],
+    })
+    .all()
 
   const imageOptions = {
     outputDir: "_site/img",
