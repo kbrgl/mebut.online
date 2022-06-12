@@ -5,8 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "concurrently --raw \"tailwindcss -w -i ./styles/app.css -o ./public/app.css\" \"eleventy --serve --quiet\"",
-    "build": "tailwindcss -m -i ./styles/app.css -o ./public/app.css && eleventy"
+    "serve": "concurrently --raw \"tailwindcss -w -i ./styles/app.css -o ./_site/app.css\" \"eleventy --serve --quiet\"",
+    "build": "tailwindcss -m -i ./styles/app.css -o ./_site/app.css && eleventy"
   },
   "keywords": [],
   "author": "Kabir Goel",
