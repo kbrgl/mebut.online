@@ -9,7 +9,7 @@ block content
             | Curated&nbsp;by&nbsp;#[a.underline(href="https://kabirgoel.com") Kabir].
     .subscribe
     .pb-20(class="px-5 md:px-10")
-        .grid.gap-8.border-collapse.w-full(class="grid-cols-1 md:grid-cols-3")
+        .grid.gap-8(class="grid-cols-1 md:grid-cols-3")
             each site in sites
                 a(href=site.link, class="").block.group
                     img(src=site.thumbnail.jpeg[0].url, class="group-hover:shadow-xl transition-shadow").w-full
