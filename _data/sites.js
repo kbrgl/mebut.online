@@ -13,15 +13,19 @@ const table = base("Websites")
 module.exports = async function () {
   const asset = new AssetCache("airtable_sites")
 
+  let sites
   if (asset.isCacheValid("1w")) {
-    return asset.getCachedValue()
+    sites = await asset.getCachedValue()
+    console.log(`Using ${sites.length} cached sites from Airtable`)
+  } else {
+    sites = await table
+      .select({
+        sort: [{ field: "Created", direction: "desc" }],
+      })
+      .all()
+    await asset.save(sites, "json")
+    console.log(`Fetched ${sites.length} sites from Airtable`)
   }
-
-  let sites = await table
-    .select({
-      sort: [{ field: "Created", direction: "desc" }],
-    })
-    .all()
 
   const imageOptions = {
     outputDir: "_site/img",
@@ -29,8 +33,6 @@ module.exports = async function () {
       duration: "*",
     },
   }
-
-  console.log(`Fetched ${sites.length} sites from Airtable`)
 
   sites = await Promise.all(
     sites.map(async ({ fields }) => {
@@ -52,8 +54,6 @@ module.exports = async function () {
       }
     })
   )
-
-  await asset.save(sites, "json")
 
   return sites
 }
