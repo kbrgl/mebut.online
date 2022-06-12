@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: Redaction;
+    src: url(/redaction-regular.woff2);
+}
+@font-face {
+    font-family: Redaction;
+    font-style: italic;
+    src: url(/redaction-italic.woff2);
+}

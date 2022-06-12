@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+*.log
+
+public/app.css
+_site
+.env
+.cache

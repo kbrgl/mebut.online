@@ -1,0 +1,17 @@
+extends /layout.pug
+block content
+    nav.px-10.pt-10.flex.justify-between.items-center
+        img(src="/happy.png", alt="Happy Mac icon", width="40", height="40")
+    header.mx-auto.p-10
+        h1.font-title.text-5xl Me, But <em>Online</em>.
+        p.text-lg.text-gray-600.mt-5.max-w-prose
+            | A curated collection of <a class="underline" href="https://kabirgoel.com">Kabir’s</a> favorite personal websites.
+            | He likes minimalist, innovative websites that have great typography and use HTTPS.
+    .px-10.pb-20
+        .grid.grid-cols-3.gap-4.border-collapse.w-full
+            each site in sites
+                a(href=site.link, class="hover:shadow").block.border
+                    img(src=site.thumbnail.jpeg[0].url).w-full
+                    .p-5
+                        p.font-medium.text-2xl(class="group-hover:text-gray-500")= site.name
+                        .text-gray-500 !{site.notes}
