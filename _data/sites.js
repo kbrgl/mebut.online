@@ -14,7 +14,7 @@ module.exports = async function () {
   const asset = new AssetCache("airtable_sites")
 
   let sites
-  if (asset.isCacheValid("1w")) {
+  if (asset.isCacheValid("2h")) {
     sites = await asset.getCachedValue()
     console.log(`Using ${sites.length} cached sites from Airtable`)
   } else {
@@ -50,6 +50,7 @@ module.exports = async function () {
         preview: previewStats,
         thumbnail: thumbnailStats,
         notes: fields.Notes,
+        date: fields.Created,
       }
     })
   )
