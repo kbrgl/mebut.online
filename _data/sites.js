@@ -38,7 +38,6 @@ module.exports = async function () {
     sites.map(async ({ fields }) => {
       const preview = fields.Attachments[0].url
       const thumbnail = fields.Attachments[0].thumbnails.large.url
-      const notes = md.render(fields.Notes)
 
       const [previewStats, thumbnailStats] = await Promise.all([
         Image(preview, imageOptions),
@@ -50,7 +49,7 @@ module.exports = async function () {
         name: fields.Name,
         preview: previewStats,
         thumbnail: thumbnailStats,
-        notes,
+        notes: fields.Notes,
       }
     })
   )
