@@ -1,17 +1,19 @@
-extends /layout.pug
-block content
-    nav.pt-10.flex.justify-between.items-center(class="px-5 md:px-10")
-        img(src="/happy.png", alt="Happy Mac icon", width="40", height="40")
-    header.mx-auto.py-10(class="px-5 md:px-10")
-        h1.font-title.text-5xl Me, But <em>Online</em>.
-        p.text-lg.text-gray-600.mt-5.max-w-prose
-            | A collection of minimalist, innovative personal websites with great typography.
-            | Curated&nbsp;by&nbsp;#[a.underline(href="https://kabirgoel.com") Kabir].
-    .subscribe
-    .pb-20(class="px-5 md:px-10")
-        .grid.gap-8(class="grid-cols-1 md:grid-cols-3")
-            each site in sites
-                a(href=site.link, class="").block.group
-                    img(src=site.thumbnail.jpeg[0].url, class="group-hover:shadow-xl transition-shadow").w-full
-                    .pt-2
-                        p.font-medium.text-2xl= site.name
+---
+layout: layout
+---
+
+include /navbar.pug
+header.mx-auto.py-10(class="px-5 md:px-10")
+    h1.font-title.text-5xl.text-gray-900 Me, But <em>Online</em>.
+    p.text-lg.text-gray-600.mt-5.max-w-prose
+        | A collection of minimalist, innovative personal websites with great typography.
+        | Curated&nbsp;by&nbsp;#[a.underline(href="https://kabirgoel.com") Kabir].
+    include /subscribe.pug
+.pb-20(class="px-5 md:px-10")
+    .grid.gap-8(class="grid-cols-1 md:grid-cols-3")
+        each site in sites
+            a(href=site.link, class="").block.group
+                img(src=site.thumbnail.jpeg[0].url, class="group-hover:shadow-xl transition-shadow").w-full
+                .pt-2
+                    p.font-medium.text-2xl= site.name
+                    p.text-gray-600.text-sm= new Date(site.date).toLocaleDateString(undefined, {month: 'long', day: 'numeric', year: 'numeric'})
