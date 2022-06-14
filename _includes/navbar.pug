@@ -1,12 +1,12 @@
-nav.py-5.flex.flex-col.items-stretch.justify-between(class="md:flex-row md:items-center border-b md:border-b-0")
-    div.flex.justify-between.items-center.flex-1.px-5(class="md:px-10")
+nav(class="md:flex-row md:items-center border-b md:border-b-0 py-5 flex flex-col items-stretch justify-between")
+    div(class="md:px-10 flex justify-between items-center flex-1 px-5")
         a(href="/")
             img(src="/happy.png", alt="Happy Mac icon", width="40", height="40")
-        label(for="menu", class="md:hidden").cursor-pointer
+        label(for="menu", class="md:hidden cursor-pointer")
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
             </svg>
-    input#menu.peer(type="checkbox", class="hidden hamburger")
-    .hidden.mt-5.flex-col.items-stretch.space-y-4(class="md:flex md:flex-row md:items-center md:pr-10 md:mt-0 md:space-x-4 md:space-y-0 peer-checked:flex")
-        a(href="/interviews").navbar-link Interviews
-        a(href="/about").navbar-link About
+    input#menu(type="checkbox", class="hidden hamburger peer")
+    div(class="md:flex md:flex-row md:items-center md:pr-10 md:mt-0 md:space-x-4 md:space-y-0 peer-checked:flex hidden mt-5 flex-col items-stretch space-y-4")
+        a(href="/interviews", class="navbar-link") Interviews
+        a(href="/about", class="navbar-link") About
