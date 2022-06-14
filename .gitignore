@@ -6,3 +6,4 @@ public/app.css
 _site
 .env
 .cache
+.vercel
