@@ -19,6 +19,10 @@ Me, But Online is dedicated to personal websites that get the job done and do it
 
 Me, But Online builds on several other collections. [Minimal Gallery](https://minimal.gallery) and [hoverstat.es](https://www.hoverstat.es/) come closest, but there are also [One Page Love](https://onepagelove.com) and [Typewolf](https://typewolf.com).
 
+## Inspired by Me, But Online
+
+- [Sites I Like](https://sites-i-like.vercel.app) by [@\_yihui](https://twitter.com/_yihui/status/1545248102017167361?s=20&t=c-XmqLbhdFoV5gUWVtV1lg)
+
 ## If you’re featured...
 
 Thanks for your contribution to the indie web! If you want me to remove your website for any reason whatsoever, write me an email at kabirgoel.kg@gmail.com or [DM me on Twitter](https://twitter.com/KabirGoel).
