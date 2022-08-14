@@ -10,7 +10,7 @@
 
 @layer components {
     .navbar-link {
-        @apply text-gray-900 font-medium md:underline md:decoration-gray-400 border-t md:border-t-0 pt-5 md:pt-0 px-5 md:px-0;
+        @apply text-gray-900 font-medium md:decoration-gray-400 border-t md:border-t-0 pt-5 md:pt-0 px-5 md:px-0;
     }
 
     .content {
